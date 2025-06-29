@@ -12,3 +12,6 @@ fig = px.bar(df, x="Category", y="Value", color="Category")
 
 # Display the chart
 fig.show()
+
+Redemption Rate (%) = 
+DIVIDE([Orders With Promotion], DISTINCTCOUNT(Sales[OrderID])) * 100
