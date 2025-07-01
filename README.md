@@ -44,3 +44,46 @@ CALCULATE(
 
 Redemption Rate (%) = 
 DIVIDE([Orders With Promotion], DISTINCTCOUNT(Sales[OrderID])) * 100
+
+# This is a conceptual example, not a runnable full code without more context.
+# You'd need to install Dash: pip install dash
+
+"""
+import dash
+from dash import dcc
+from dash import html
+import plotly.express as px
+import pandas as pd
+
+# Load your data
+df = pd.read_csv('your_data.csv') # Replace with your data source
+
+app = dash.Dash(__name__)
+
+app.layout = html.Div([
+    html.H1("My Interactive Dashboard"),
+
+    html.Div([
+        html.Label("Select Category:"),
+        dcc.Dropdown(
+            id='category-dropdown',
+            options=[{'label': i, 'value': i} for i in df['Category'].unique()],
+            value=df['Category'].unique()[0]
+        )
+    ]),
+
+    dcc.Graph(id='live-update-graph')
+])
+
+@app.callback(
+    Output('live-update-graph', 'figure'),
+    Input('category-dropdown', 'value')
+)
+def update_graph(selected_category):
+    filtered_df = df[df['Category'] == selected_category]
+    fig = px.bar(filtered_df, x='Date', y='Value', title=f'Data for {selected_category}')
+    return fig
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
+"""
