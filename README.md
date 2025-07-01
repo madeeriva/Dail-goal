@@ -87,3 +87,6 @@ def update_graph(selected_category):
 if __name__ == '__main__':
     app.run_server(debug=True)
 """
+
+git config --global user.name "Vivek kumar dubey"
+git config --global user.email "kumar9958513256@gmail.com"
